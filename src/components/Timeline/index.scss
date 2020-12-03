@@ -1,0 +1,16 @@
+.timeline-container{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 40px 0;
+}
+
+//add middle line from timeline
+.timeline-container::after{
+  background-color: #e17b77;
+  content: '';
+  left: calc(50% - 2px);
+  position: absolute;
+  width: 4px;
+  height: 100%;
+}

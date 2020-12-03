@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato");
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+}
+
+body {
+  background-color: #edf0f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  min-height: 100vh;
+  font-family: "Lato", "sans-serif";
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}

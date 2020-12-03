@@ -1,0 +1,139 @@
+.subitem{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+  margin: 10px 0;
+  width: 50%;
+}
+
+//for each odd element, aligns to the right
+.subitem:nth-child(odd){
+  align-self: flex-end;
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 30px;
+}
+
+.subitem-content{
+  background-color: #fff;
+  max-width: 70%;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 15px;
+  text-align: right;
+  position: relative;
+}
+
+.subitem:nth-child(odd) .subitem-content{
+  text-align: left;
+  align-items: flex-start;
+}
+
+//last rendered element
+.subitem-content::after{
+  content: ' ';
+  background-color: #fff;
+  box-shadow: 1px -1px 1px rgba(0,0,0,0.2);
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  right: -7.5px;
+  top: calc(50% - 7.5px)
+}
+
+//para cada um que for ímpar e estilizado por último
+.subitem:nth-child(odd) .subitem-content::after{
+  box-shadow: -1px 1px 1px rgba(0,0,0,0.2);
+  right: auto;
+  left: -7.5px;
+}
+
+.subitem-content .tag{
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  letter-spacing: 1px;
+}
+
+//chama sempre o elemento pai, e em seguida menciona os filhos que sofrerão as mudanças
+.subitem:nth-child(odd) .subitem-content .tag{
+  left: auto;
+  right: 5px;
+}
+
+.subitem-content .time{
+  color: #777;
+  font-size: 12px
+}
+
+.subitem-content p{
+  font-size: 16px;
+  line-height: 24px;
+  margin: 15px 0;
+  max-width: 250px;
+}
+
+.subitem-content a{
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.subitem-content a::after{
+  content: ' \27A4';
+  font-size: 12px;
+}
+
+//circulos da timeline com bordinha
+.subitem-content .circle{
+  background-color: #fff;
+  border: 3px solid #e17b77;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 10px);
+  right: -40px;
+  z-index: 1;
+}
+
+//para cada uma que for ímpar, muda a posição
+.subitem:nth-child(odd) .subitem-content .circle{
+  right: 0;
+  left: -40px;
+}
+
+@media only screen and (max-width: 767px){
+  .subitem-content, 
+  .subitem:nth-child(odd) .subitem-content{
+    padding: 15px 10px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .subitem-content .tag{
+    width: calc(100% - 10px);
+  }
+
+  .subitem-content time{
+    margin-top: 20px;
+  }
+
+  .subitem-content a{
+    text-decoration: underline;
+  }
+
+  .subitem-content a::after{
+    display: none;
+  }
+}
